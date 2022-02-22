@@ -6,11 +6,18 @@
     - https://github.com/orgs/edx/projects/7
     - https://github.com/orgs/openedx/projects/8
     - https://github.com/openedx/open-edx-proposals/pulls
+  bots: &bots
+    - edx-webhook
+    - edx-pipeline-bot
+    - edx-requirements-bot
+    - edx-transifex-bot
 
 - digest: 3day.html
   since: 3 day
   items: *items
+  bots: *bots
 
 - digest: 1day.html
   since: 1 day
   items: *items
+  bots: *bots
