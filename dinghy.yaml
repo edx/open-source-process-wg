@@ -1,23 +1,24 @@
 # Configuration for dinghy
 
-- digest: week.html
-  since: 1 week
-  items: &items
-    - https://github.com/orgs/edx/projects/7
-    - https://github.com/orgs/openedx/projects/8
-    - https://github.com/openedx/open-edx-proposals/pulls
-  bots: &bots
+defaults:
+  ignore_users:
     - edx-webhook
     - edx-pipeline-bot
     - edx-requirements-bot
     - edx-transifex-bot
 
-- digest: 3day.html
-  since: 3 day
-  items: *items
-  bots: *bots
+digests:
+  - digest: week.html
+    since: 1 week
+    items: &items
+      - https://github.com/orgs/edx/projects/7
+      - https://github.com/orgs/openedx/projects/8
+      - https://github.com/openedx/open-edx-proposals/pulls
 
-- digest: 1day.html
-  since: 1 day
-  items: *items
-  bots: *bots
+  - digest: 3day.html
+    since: 3 day
+    items: *items
+
+  - digest: 1day.html
+    since: 1 day
+    items: *items
