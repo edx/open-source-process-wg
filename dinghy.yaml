@@ -13,7 +13,7 @@ digests:
     items: &items
       - https://github.com/orgs/edx/projects/7
       - https://github.com/orgs/openedx/projects/8
-      - https://github.com/openedx/open-edx-proposals/pulls
+      - https://github.com/openedx/open-edx-proposals
 
   - digest: 3day.html
     since: 3 day
