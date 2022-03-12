@@ -36,7 +36,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DINGHY_ACCESS_TOKEN }}
         run: |
-          python -m dinghy
+          python -m dinghy --verbosity=debug
 
       - name: "Publish digests"
         run: |
