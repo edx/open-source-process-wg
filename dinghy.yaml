@@ -7,18 +7,19 @@ defaults:
     - edx-requirements-bot
     - edx-transifex-bot
 
+  items:
+    - url: https://github.com/orgs/edx/projects/7
+      home_repo: edx/open-source-process-wg
+    - url: https://github.com/orgs/openedx/projects/8
+      home_repo: openedx/tcril-engineering
+    - https://github.com/openedx/open-edx-proposals
+
 digests:
   - digest: week.html
     since: 1 week
-    items: &items
-      - https://github.com/orgs/edx/projects/7
-      - https://github.com/orgs/openedx/projects/8
-      - https://github.com/openedx/open-edx-proposals
 
   - digest: 3day.html
     since: 3 day
-    items: *items
 
   - digest: 1day.html
     since: 1 day
-    items: *items
