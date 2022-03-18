@@ -12,7 +12,8 @@ defaults:
       home_repo: edx/open-source-process-wg
     - url: https://github.com/orgs/openedx/projects/8
       home_repo: openedx/tcril-engineering
-    - https://github.com/openedx/open-edx-proposals
+    - url: https://github.com/openedx/open-edx-proposals
+      title: OEP reviews
 
 digests:
   - digest: week.html
