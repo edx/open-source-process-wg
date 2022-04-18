@@ -34,7 +34,9 @@ jobs:
 
       - name: "Run dinghy"
         env:
-          GITHUB_TOKEN: ${{ secrets.DINGHY_ACCESS_TOKEN }}
+          # This token serves all the workflows in this repo, but we named it
+          # for just one of them.
+          GITHUB_TOKEN: ${{ secrets.ADD_ISSUE_TO_PROJECT_TOKEN }}
         run: |
           python -m dinghy --verbosity=debug
 
