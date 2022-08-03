@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<head>
+  <title>Activity since 2022-07-27</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .old > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  </style>
+<body>
+
+<h1>Activity since 2022-07-27</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/orgs/edx/projects/7">Open Source Process working group</a></span>
+      project items
+      </p>
+      
+        <ul class="entries">
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/62"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Make a plan for edx-platform SOX compliance</b> #62</a>
+              [nedbat]
+
+              
+              </p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/63"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Automate collecting screenshots of who has access to a repo</b> #63</a>
+              [nedbat]
+
+              <span class="label" style="--label-r:78;--label-g:191;--label-b:199;--label-h:183;--label-s:51;--label-l:54;">coding</span>
+                
+              </p><p>For SOX compliance, we need to document who has access to sensitive repos.  Screenshots of the GitHub UI is...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/48"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Design new blended tracking process</b> #48</a>
+              [nedbat]
+
+              
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/edx/open-source-process-wg/issues/48#issuecomment-1197222012" title="07-27 18:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Should we have this written in the wiki somewhere?</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/52"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>SOX compliance for 2U work in openedx repos</b> #52</a>
+              [nedbat]
+
+              
+              </p><p>Plan: https://docs.google.com/document/d/1LzbNvpozWqaswltpo0FJ9l-cCeg32XWHW11VSYYibxY/edit#
+
+ Check that the teams...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/64"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Write guidelines for public vs private information</b> #64</a>
+              [nedbat]
+
+              
+              </p><p>On Jul 28 we discussed the split of wikis, and that pages were being written in the private wiki that could go into...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/60"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>OEP-56 Rollout - Architectural Processes</b> #60</a>
+              [hurtstotouchfire]
+
+              
+              </p><p>Overview
+OEP-56 merged with a status of Provisional on 3/28/22.
+From the wiki page, circa 7/29/22
+
+In the short...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/edx/open-source-process-wg/issues/31"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>OEP-55 Rollout - Maintainers</b> #31</a>
+              [nedbat]
+
+              
+              </p><p>Overview
+The maintainers OEP merged with a status of provisional back in May. Defining maintainership will be an...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/edx/open-source-process-wg/issues/31#issuecomment-1200044224" title="07-30 00:12">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>hurtstotouchfire</b>: TODO:
+Add a sentence or two explaining what this OEP would do for 2U, making it clear that this...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/edx/open-source-process-wg/issues/31#issuecomment-1177849764" title="07-30 00:12">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>hurtstotouchfire</b>: @nedbat fyi, I capriciously decided to keep this as the primary tracking ticket and I&#39;m closing...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/edx/open-source-process-wg/issues/31#issuecomment-1170371722" title="07-30 00:12">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: tCRIL had a kick-off with ..... they are doing it.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  <li>
+      <p><span class="reponame"><a href="https://github.com/orgs/openedx/projects/8">tCRIL Engineering Tasks</a></span>
+      project items
+      </p>
+      
+        <ul class="entries">
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/393"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Forum badge for core contributors?</b> #393</a>
+              [kdmccormick]
+
+              
+              </p><p>These Forum Mod &amp; Tutor Maintainer badges are cool:
+
+
+Would it be hard to do the same thing for Core Contributors,...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/frontend-template-application/pull/453"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Moving code coverage from codecov package to CI</b> #453</a>
+              [mamankhan99]
+
+              <span class="homerepo">openedx/frontend-template-application</span>
+              </p><p>Codecov NodeJS Uploader package is depreciated since version 3.8.3
+This PR move the coverage to CI according to the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/frontend-template-application/pull/453#pullrequestreview-1053886814" title="07-28 10:53">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>arbrandes</b>: Approved!  Thanks!</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/frontend-build/pull/251"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Adding codecov action to workflows</b> #251</a>
+              [mamankhan99]
+
+              <span class="label" style="--label-r:237;--label-g:237;--label-b:237;--label-h:0;--label-s:0;--label-l:92;">released</span>
+                <span class="homerepo">openedx/frontend-build</span>
+              </p><p>codecov action added to the ci that uploads coverage report to codecov.io</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/frontend-build/pull/251#pullrequestreview-1053886318" title="07-28 10:53">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>arbrandes</b>: Apologies for the delay.  Looks good to me!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/frontend-build/pull/251#issuecomment-1197987835" title="07-28 10:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>edx-semantic-release</b>: 🎉 This PR is included in version 12.0.3 🎉
+The release is available on:
+
+npm package (@latest...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/frontend-wg/issues/117"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Frontend Working Group Meeting 2022-07-28</b> #117</a>
+              [arbrandes]
+
+              <span class="homerepo">openedx/frontend-wg</span>
+              </p><p>Date, time, and location
+Thursday July 28th at 11:00 UTC (Timezone converter)
+
+Calendar
+Meeting room
+
+Agenda
+Anyone...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/frontend-app-course-authoring/pull/311"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Moving code coverage from codecov package to CI</b> #311</a>
+              [mamankhan99]
+
+              <span class="homerepo">openedx/frontend-app-course-authoring</span>
+              </p><p>Codecov NodeJS Uploader package is depreciated since version 3.8.3
+This PR move the coverage to CI according to the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/frontend-app-course-authoring/pull/311#issuecomment-1155894940" title="07-28 11:29">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>codecov</b>: Codecov Report
+
+Merging #311 (7d2881a) into master (21c36a4) will not change coverage.
+The diff...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/385"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>[GH Request] Offboard oliviaruizknott</b> #385</a>
+              [hurtstotouchfire]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+User List
+
+oliviaruizknott
+
+End Date
+15 July 2022
+Urgency
+moderate
+Retained Permissions &amp; Special...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/385#issuecomment-1197384965" title="07-27 21:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Olivia has been removed from the CLA database.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/388"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>[GH Request] Onboard KristinAoki</b> #388</a>
+              [jristau1984]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+User List (case sensitive!) - Please also include in ticket title
+Kristin Aoki, GH Username:...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/388#issuecomment-1197386175" title="07-27 21:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Kristin has now been added to the CLA database.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/docs.openedx.org/issues/87"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Fix Automated `make upgrade`</b> #87</a>
+              [feanil]
+
+              <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">enhancement 🚀</span>
+                <span class="label" style="--label-r:111;--label-g:30;--label-b:86;--label-h:318;--label-s:57;--label-l:27;">maintenance 🚧</span>
+                <span class="homerepo">openedx/docs.openedx.org</span>
+              </p><p>The automated make upgrade script has failed the last 3 times it has run.  Look into why and fix the issue.
+Ideally...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/391"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>[GH Request] Confluence FEDX space write access for Jeremy Bowman</b> #391</a>
+              [jmbowman]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+Urgency
+Medium Urgency - needed to properly locate new doc
+Problem/Request
+Please grant me write...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/391#issuecomment-1198454930" title="07-28 17:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @jmbowman since that space was already public, rather than giving you write permissions, I&#39;ve...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/384"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>[GH Request] Onboard &lt;danielkalen&gt;</b> #384</a>
+              [Yar0myr]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+edX(2U)
+User List (case sensitive!)
+Daniel Kalen, danielkalen
+Start Date
+July 26 2022
+Urgency
+High, needed...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/384#issuecomment-1197385808" title="07-27 21:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: These people have now been added to the CLA database.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/389"><span class="octicons" title="closed issue, newly closed"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>[GH Request] Onboard zubair-ce07 asifbilal786 MaxFrank13 danielkalen varshamenon4 m-pitera</b> #389</a>
+              [jsoto2u]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+User List (case sensitive!) - Please also include in ticket...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/389#issuecomment-1197385548" title="07-27 21:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: (Sorry about the close)...
+These people have been added to the CLA database.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/ecommerce/pull/3742"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>FC-0001: Replace usages enterprise_catalogs Enterprise API V1</b> #3742</a>
+              [ruzniaievdm]
+
+              <span class="label" style="--label-r:240;--label-g:240;--label-b:240;--label-h:0;--label-s:0;--label-l:94;">open-source-contribution</span>
+                <span class="homerepo">openedx/ecommerce</span>
+              </p><p>(1 of 5) for closes openedx/public-engineering#61
+Latest: openedx/edx-enterprise#1582
+Description:
+Replace these...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/ecommerce/pull/3742#issuecomment-1198583283" title="07-28 20:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @natabene this is ready for 2U review.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/frontend-app-admin-portal/pull/801"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>FC-0001: Replace usages enterprise_catalog Enterprise API V1</b> #801</a>
+              [ruzniaievdm]
+
+              <span class="label" style="--label-r:240;--label-g:240;--label-b:240;--label-h:0;--label-s:0;--label-l:94;">open-source-contribution</span>
+                <span class="homerepo">openedx/frontend-app-admin-portal</span>
+              </p><p>(2 of 5) for closes openedx/public-engineering#61
+Latest: openedx/edx-enterprise#1582
+Description:
+Replace this...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/frontend-app-admin-portal/pull/801#issuecomment-1198584890" title="07-28 20:10">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @natabene this is ready for 2U review.</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/overhangio/2u-tutor-adoption/issues/75"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Create a pluggable &#34;jobs&#34;/&#34;tasks&#34; interface</b> #75</a>
+              [kdmccormick]
+
+              <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">enhancement</span>
+                <span class="label" style="--label-r:158;--label-g:248;--label-b:170;--label-h:128;--label-s:86;--label-l:79;">refactor</span>
+                <span class="homerepo">overhangio/2u-tutor-adoption</span>
+              </p><p>Context
+Originally discussed here: overhangio/tutor#643 (comment) .
+Problem
+There is no perfect way for Tutor or its...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/openedx-learning/pull/13"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Another pass at basic content models</b> #13</a>
+              [ormsbee]
+
+              <span class="homerepo">openedx/openedx-learning</span>
+              </p><p>This splits Item-related models into a new app and otherwise follows the logical split discussed here.</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/openedx-learning/pull/13#issuecomment-1196806059" title="07-27 14:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Hey @ormsbee , are you looking for another round of review on this one?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/openedx-learning/pull/13#issuecomment-1196835470" title="07-27 14:28">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ormsbee</b>: @kdmccormick: Almost. I&#39;ve been doing bits and pieces in the odd-hours for this. I need to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/openedx-learning/pull/13#issuecomment-1197372735" title="07-27 21:11">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ormsbee</b>: @kdmccormick: ready for another round of review, with the caveat that I&#39;d ask that you largely...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/edx-platform/pull/27011"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>build: begin linting imports</b> #27011</a>
+              [kdmccormick]
+
+              <span class="homerepo">openedx/edx-platform</span>
+              </p><p>Blockers
+
+#27875 : ensure every python source dir has an __init__.py
+#27874 : remove dependency of xmodule on...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/edx-enterprise-data/pull/313"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>FC-0001: Remove enterprise_catalogs API usages</b> #313</a>
+              [ruzniaievdm]
+
+              <span class="label" style="--label-r:240;--label-g:240;--label-b:240;--label-h:0;--label-s:0;--label-l:94;">open-source-contribution</span>
+                <span class="homerepo">openedx/edx-enterprise-data</span>
+              </p><p>(4 of 5) for closes openedx/public-engineering#61
+Latest: openedx/edx-enterprise#1582
+Replace this usage with...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/edx-enterprise-data/pull/313#issuecomment-1199064573" title="07-29 09:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ruzniaievdm</b>: @feanil made a separate commit, after your approval I will rebase into one commit and then merge</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/edx-enterprise-data/pull/313#pullrequestreview-1055600507" title="07-29 13:49">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>feanil</b>: This looks good to me.  @natabene can you schedule this for review by the relevant team.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/edx-enterprise-data/pull/313#issuecomment-1199339401" title="07-29 14:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ruzniaievdm</b>: @feanil Rebased to one commit and also removed two tests with unused endpoint variable...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/edx-enterprise-data/pull/313#issuecomment-1157706900" title="07-29 19:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>codecov</b>: Codecov Report
+
+Merging #313 (d9c8982) into master (89d99bb) will increase coverage by...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/394"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>[GH Request] Create shared #event-bus Slack channel</b> #394</a>
+              [robrap]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+Urgency
+Medium
+Problem/Request
+Please create an #event-bus channel in the Open edX Slack and send an...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/398"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Setup a pretty domain for Backstage</b> #398</a>
+              [feanil]
+
+              
+              </p><p>The openedx backstage instance is deployed to heroku at https://open-edx-backstage.herokuapp.com/
+AC:
+
+Update the...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/issues/361"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>OEP-55: Change reference link to publicly accessible reference</b> #361</a>
+              [giovannicimolin]
+
+              <span class="homerepo">openedx/open-edx-proposals</span>
+              </p><p>Reference [5] in the OEP-55 links to the article What Makes a Great Maintainer of Open Source Projects? behind a...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/issues/361#issuecomment-1199869819" title="07-29 19:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @giovannicimolin good find and thanks for finding the alternative version.  I&#39;m happy to make...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/issues/361#issuecomment-1201530956" title="08-01 18:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>giovannicimolin</b>: @feanil Thanks for creating the PR, I left a 👍 there. 😃</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/397"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>[GH Request] Add edx_transifex_bot as administrator to frontend-app-discussions repo</b> #397</a>
+              [jristau1984]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+Urgency
+Medium Urgency (resolve in &lt;one week)
+Requested Change
+Our translation documentation directs us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/397#issuecomment-1201816240" title="08-01 22:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ormsbee</b>: @jristau1984: Added edx-transifex-bot (dashes, not underscores) to be admin on...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/397#issuecomment-1202549410" title="08-02 13:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Carlos-Muniz</b>: @ormsbee This seems right, but it may be overkill. The @edx-transifex-bot seems to be able to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/397#issuecomment-1202693807" title="08-02 14:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ormsbee</b>: Based on the edx-transifex-translations group&#39;s description and its ability to function as...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/344"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Frontend reviews 2022-06-27</b> #344</a>
+              [arbrandes]
+
+              <span class="label" style="--label-r:114;--label-g:129;--label-b:26;--label-h:68;--label-s:66;--label-l:30;">frontend</span>
+                <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">community</span>
+                
+              </p><p>Placeholder issue for community reviews taken on during the current sprint.  The list of subtasks (the PRs) need not...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/400"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Setup Slack/Discourse Integrations</b> #400</a>
+              [feanil]
+
+              
+              </p><p>You can enable the discourse chat integration here:...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/401"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Land the README ADR for Maintainers</b> #401</a>
+              [feanil]
+
+              <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">community</span>
+                
+              </p><p>We need agreement on what should go into repo readmes.  Write an ADR that lays out the sections that must exist and...</p></li>
+          </ul>
+      
+    </li>
+  <li>
+      <p><span class="reponame"><a href="https://github.com/openedx/open-edx-proposals">OEP reviews</a></span>
+      repo issues and pull requests
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/358"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>docs: update OEP-50 so reflects latest documentation</b> #358</a>
+              [mariajgrimaldi]
+
+              <span class="label" style="--label-r:240;--label-g:240;--label-b:240;--label-h:0;--label-s:0;--label-l:94;">open-source-contribution</span>
+                
+              </p><p>Description
+This PR adds the latest documentation to the OEP-50.</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/358#issuecomment-1198200531" title="07-28 14:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>openedx-webhooks</b>: @mariajgrimaldi 🎉 Your pull request was merged!  Please take a moment  to answer a two question...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/362"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>feanil/copy button</b> #362</a>
+              [feanil]
+
+              
+              </p><p>feat: Add copy buttons to all code blocks.
+chore: Run make upgrade</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/201"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>OEP-53 Package Release process</b> #201</a>
+              [Jawayria]
+
+              
+              </p><p>JIRA: https://openedx.atlassian.net/browse/BOM-2471</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/201#issuecomment-1201453137" title="08-01 16:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @Jawayria @jmbowman what&#39;s the state of this OEP?  Should we close it for now, or is it going to...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/312"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>OEP-57: Core Repositories</b> #312</a>
+              [kdmccormick]
+
+              
+              </p><p>This OEP is a big ol&#39; work-in-progress. Feel free to leave early feedback, but please keep in mind that it&#39;s still a...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/312#issuecomment-1201457319" title="08-01 16:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: Just making a note on this OEP, that even though there has not been new activity on the PR, this...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/357"><span class="octicons" title="merged pull request, newly merged"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>docs: Add a proposed process for transferring maintainership.</b> #357</a>
+              [feanil]
+
+              
+              </p><p>There&#39;s lots of cleanup to do still but this outlines the process by
+which we can find new maintainers for...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/259"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>OEP-XXXX: Micro-frontend Customization</b> #259</a>
+              [davidjoy]
+
+              
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/259#issuecomment-1201454033" title="08-01 16:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @davidjoy @xitij2000 what&#39;s the status of this OEP, should it be closed for now or is it gonna...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/259#issuecomment-1201505621" title="08-01 17:33">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>davidjoy</b>: Sadly this isn&#39;t on my radar these days, but I still believe in this vision.  I&#39;d hate to see...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/287"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>OEP-XXXX: Micro-frontend plugins</b> #287</a>
+              [davidjoy]
+
+              
+              </p><p>This is a work in progress - it needs its guts fleshed out significantly, but contains a rough structure and an...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/287#issuecomment-1201454807" title="08-01 16:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @davidjoy same question here, what&#39;s the status of this OEP, should it be closed for now or is...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/287#issuecomment-1201508637" title="08-01 17:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>davidjoy</b>: Same sad response - I still think this is the right proposal but it&#39;s off my radar at the...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/364"><span class="octicons" title="merged pull request, newly created, newly merged"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>docs: Add an alternative link to a publication.</b> #364</a>
+              [feanil]
+
+              
+              </p><p>The paper for What makes a great maintainer of Open Source Projects?
+is behind a pay wall on the IEEE website but it...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/364#pullrequestreview-1057664688" title="08-01 17:59">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>giovannicimolin</b>: Looks good. 👍
+That was fast! 🚀</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/issues/361"><span class="octicons" title="closed issue, newly created, newly closed"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>OEP-55: Change reference link to publicly accessible reference</b> #361</a>
+              [giovannicimolin]
+
+              
+              </p><p>Reference [5] in the OEP-55 links to the article What Makes a Great Maintainer of Open Source Projects? behind a...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/issues/361#issuecomment-1199869819" title="07-29 19:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @giovannicimolin good find and thanks for finding the alternative version.  I&#39;m happy to make...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/issues/361#issuecomment-1201530956" title="08-01 18:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>giovannicimolin</b>: @feanil Thanks for creating the PR, I left a 👍 there. 😃</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/363"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>docs: Add an ADR the format of README files in repos.</b> #363</a>
+              [feanil]
+
+              
+              </p><p>This is an additional ADR for OEP-55 which provides details about the
+README specification.</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#pullrequestreview-1057661505" title="08-01 17:58">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>e0d</b>: I&#39;ve added a couple non-blocking comments.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r934779098" title="08-01 17:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>e0d</b>: Would a link to a template in cookie cutters be better?  Worry this will drift compared to where...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r934806815" title="08-01 18:33">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: That&#39;s a good call, Once we&#39;ve hammerd out the contents, I&#39;ll update the cookiecutter and link...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r934780382" title="08-01 17:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>e0d</b>: Do we need to have a status or similar around whether contributions are desired and/or will be accepted?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r934806360" title="08-01 18:33">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: I was considering renaming this section to Contributing and then we could let maintainers decide...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r934901420" title="08-01 20:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>e0d</b>: That makes sense to me.  Though I think that we should emphasize the following:
+
+contributions...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#pullrequestreview-1058523397" title="08-02 10:30">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>idegtiarov</b>: One minor nit, the other looks good to me. Thank you.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935382002" title="08-02 10:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>idegtiarov</b>: typo:
+  
+    
+      
+        Suggested change
+        
+          
+    
+
+        
+      
+    
+   ...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#pullrequestreview-1058977053" title="08-02 15:42">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>nedbat</b>: It is great that we are codifying this!  I&#39;ve made a few suggestions.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935737504" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935739080" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935740810" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: It could be useful to show how to make the badges. You show a green &#34;maintained&#34; badge in the...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935742358" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: We should emphasize here who the audience is for the purpose.  They will often need more context...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935743347" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Sometimes Getting Started is about starting to use the component, sometimes it&#39;s about starting...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935745193" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Is this section duplicative of Getting Help?
+Also, do we need to link to both the Backstage page...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935747499" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: &#34;All community members are expected to follow the Open edX Code of Conduct&#34; or something like that.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935747763" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: We aren&#39;t going to say &#34;groked&#34;, right? :)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935748346" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Do we need a section about how to report issues?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935751045" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Other sections we might need:
+
+Supported platforms (Aspen--Nutmeg, Python 3.x?, OS?)
+Changelog...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/issues/333"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Update OEP-21: Deprecation and Removal with more date guidance</b> #333</a>
+              [robrap]
+
+              
+              </p><p>The DEPR process serves as both a place to document/communicate deprecation, as well as encouraging the actual...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/issues/333#issuecomment-1202979006" title="08-02 16:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>robrap</b>: @kdmccormick @davidjoy: Thanks for your thoughts. I&#39;d like to rein in and land a decision around...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/365"><span class="octicons" title="pull request, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>refactor: Change the order of punction used for headings.</b> #365</a>
+              [feanil]
+
+              
+              </p><p>Update the punctuation used for headings in this repo so that it matches
+the recommendation from the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#pullrequestreview-1057839737" title="08-01 20:56">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kdmccormick</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934903939" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: Ah, so does putting a row of punctuation both above and below the line introduce a new heading...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934904183" title="08-01 20:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934925991" title="08-01 21:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>robrap</b>: Note: I&#39;m pretty sure a single-line and double-line of the same character (e.g. #) are treated...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934904866" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: I think you mixed up **** and #### throughout this document (consistently, though: it seems to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934907721" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: per the guide, I think all the headings in this doc should be bumped up a level (* -&gt; #, etc.)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934907921" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: same comment as the one in OEP-26: I think the * and # levels are mixed up.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934909275" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: same comment as OEP-32: heading levels should be bumped up by one</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934910312" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: headings need to be bumped up one level</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934910477" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: headings need to be bumped up one level</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934911124" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: headings should be bumped up one level</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934911242" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: headings should be bumped up one level</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934911966" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: headings should be bumped up one level</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r934912195" title="08-01 20:56">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kdmccormick</b>: headings should be bumped up one level</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#issuecomment-1202730234" title="08-02 14:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @kdmccormick @robrap thanks for the initial review, I went back and cleaned up all the overline...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#pullrequestreview-1059326668" title="08-02 19:40">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>kdmccormick</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935959153" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Overline heading</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935959235" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Overline heading</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935960884" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935961220" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: This template needs fixing</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2022-08-03 13:18 by
+  <a href="https://pypi.org/project/dinghy/0.13.0">
+    dinghy
+    <span class="dinghy_version">0.13.0</span></a>.
+</p>

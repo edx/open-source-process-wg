@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<head>
+  <title>Activity since 2022-08-02</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .old > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  </style>
+<body>
+
+<h1>Activity since 2022-08-02</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/orgs/edx/projects/7">Open Source Process working group</a></span>
+      project items
+      </p>
+      
+        <p>Nothing happening</p>
+      
+    </li>
+  <li>
+      <p><span class="reponame"><a href="https://github.com/orgs/openedx/projects/8">tCRIL Engineering Tasks</a></span>
+      project items
+      </p>
+      
+        <ul class="entries">
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/397"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>[GH Request] Add edx_transifex_bot as administrator to frontend-app-discussions repo</b> #397</a>
+              [jristau1984]
+
+              <span class="label" style="--label-r:0;--label-g:107;--label-b:117;--label-h:185;--label-s:100;--label-l:22;">github-request</span>
+                
+              </p><p>Firm Name
+2U
+Urgency
+Medium Urgency (resolve in &lt;one week)
+Requested Change
+Our translation documentation directs us...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/397#issuecomment-1202549410" title="08-02 13:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Carlos-Muniz</b>: @ormsbee This seems right, but it may be overkill. The @edx-transifex-bot seems to be able to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/tcril-engineering/issues/397#issuecomment-1202693807" title="08-02 14:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>ormsbee</b>: Based on the edx-transifex-translations group&#39;s description and its ability to function as...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/344"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Frontend reviews 2022-06-27</b> #344</a>
+              [arbrandes]
+
+              <span class="label" style="--label-r:114;--label-g:129;--label-b:26;--label-h:68;--label-s:66;--label-l:30;">frontend</span>
+                <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">community</span>
+                
+              </p><p>Placeholder issue for community reviews taken on during the current sprint.  The list of subtasks (the PRs) need not...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/400"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Setup Slack/Discourse Integrations</b> #400</a>
+              [feanil]
+
+              
+              </p><p>You can enable the discourse chat integration here:...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/openedx/tcril-engineering/issues/401"><span class="octicons" title="issue, newly created"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Land the README ADR for Maintainers</b> #401</a>
+              [feanil]
+
+              <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">community</span>
+                
+              </p><p>We need agreement on what should go into repo readmes.  Write an ADR that lays out the sections that must exist and...</p></li>
+          </ul>
+      
+    </li>
+  <li>
+      <p><span class="reponame"><a href="https://github.com/openedx/open-edx-proposals">OEP reviews</a></span>
+      repo issues and pull requests
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/363"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>docs: Add an ADR the format of README files in repos.</b> #363</a>
+              [feanil]
+
+              
+              </p><p>This is an additional ADR for OEP-55 which provides details about the
+README specification.</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#pullrequestreview-1058977053" title="08-02 15:42">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>nedbat</b>: It is great that we are codifying this!  I&#39;ve made a few suggestions.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935737504" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935739080" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935740810" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: It could be useful to show how to make the badges. You show a green &#34;maintained&#34; badge in the...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935742358" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: We should emphasize here who the audience is for the purpose.  They will often need more context...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935743347" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Sometimes Getting Started is about starting to use the component, sometimes it&#39;s about starting...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935745193" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Is this section duplicative of Getting Help?
+Also, do we need to link to both the Backstage page...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935747499" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: &#34;All community members are expected to follow the Open edX Code of Conduct&#34; or something like that.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935747763" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: We aren&#39;t going to say &#34;groked&#34;, right? :)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935748346" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Do we need a section about how to report issues?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/363#discussion_r935751045" title="08-02 15:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>nedbat</b>: Other sections we might need:
+
+Supported platforms (Aspen--Nutmeg, Python 3.x?, OS?)
+Changelog...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/openedx/open-edx-proposals/pull/365"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>refactor: Change the order of punction used for headings.</b> #365</a>
+              [feanil]
+
+              
+              </p><p>Update the punctuation used for headings in this repo so that it matches
+the recommendation from the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#issuecomment-1202730234" title="08-02 14:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>feanil</b>: @kdmccormick @robrap thanks for the initial review, I went back and cleaned up all the overline...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#pullrequestreview-1059326668" title="08-02 19:40">
+                        <span class="octicon filediff" title="reviewed, changes requested"></span>
+                          
+                        
+                        <b>kdmccormick</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935959153" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Overline heading</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935959235" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Overline heading</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935960884" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: Suggested change
+        
+          
+    
+
+        
+      
+    
+    
+      
+          
+         ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/openedx/open-edx-proposals/pull/365#discussion_r935961220" title="08-02 19:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kdmccormick</b>: This template needs fixing</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2022-08-03 13:18 by
+  <a href="https://pypi.org/project/dinghy/0.13.0">
+    dinghy
+    <span class="dinghy_version">0.13.0</span></a>.
+</p>
